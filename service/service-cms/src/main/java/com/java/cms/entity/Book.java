@@ -61,16 +61,16 @@ public class Book {
     @ApiModelProperty(value = "是否收费")
     private Integer free;
 
-    @Column(name = "start_time",nullable = false,updatable = false)
-    @CreatedDate
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(name = "image_url")
+    @ApiModelProperty(value = "书封地址")
+    private String imageUrl;
+
+    @Column(name = "start_time")
     @ApiModelProperty(value = "授权开始时间",example = "2020-02-02 9:00:00")
     private Date startTime;
 
-    @Column(name = "end_time",nullable = false,insertable = false)
-    @LastModifiedDate
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @ApiModelProperty(value = "授权结束时间", example = "2020-12-12 9:00:00")
+    @Column(name = "end_time")
+    @ApiModelProperty(value = "授权结束时间")
     private Date endTime;
 
     @Column(name = "info")
@@ -81,11 +81,15 @@ public class Book {
     @ApiModelProperty(value = "是否原创")
     private Integer original;
 
-    @Column(name = "gmt_create")
+    @CreatedDate
+    @Column(name = "gmt_create",nullable = false,updatable = false)
     @ApiModelProperty(value = "创建时间")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date gmtCreate;
 
-    @Column(name = "gmt_modified")
+    @LastModifiedDate
+    @Column(name = "gmt_modified",nullable = false,insertable = false)
     @ApiModelProperty(value = "结束时间")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date gmtModified;
 }

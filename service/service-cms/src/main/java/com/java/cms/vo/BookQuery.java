@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class BookQuery {
 
+    //书名
     private String title;
 
     //开始时间
@@ -15,10 +16,6 @@ public class BookQuery {
 
     //作者
     private String author;
-
-    private String pcode;
-
-    private String code;
 
     //连载
     private Integer serialize;
