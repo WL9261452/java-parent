@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 修改了一下
+ */
 @Api(tags = "OSS云存储")
 @RestController
 @RequestMapping("/oss")

@@ -69,7 +69,7 @@ public class BookController {
     }
 
     @ApiOperation(value = "修改书籍")
-    @PostMapping("updateBook")
+    @PutMapping("updateBook")
     public APICODE updateBook(@RequestBody Book book) {
         bookService.saveOrUpdate(book);
         return APICODE.OK();
