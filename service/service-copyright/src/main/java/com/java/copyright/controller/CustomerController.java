@@ -1,9 +1,9 @@
-package com.java.customer.controller;
+package com.java.copyright.controller;
 
 import com.java.commonutils.api.APICODE;
-import com.java.customer.entity.Customer;
-import com.java.customer.service.CustomerService;
-import com.java.customer.vo.CustomerQuery;
+import com.java.copyright.entity.Customer;
+import com.java.copyright.service.CustomerService;
+import com.java.copyright.vo.CustomerQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

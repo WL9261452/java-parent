@@ -1,4 +1,4 @@
-package com.java.customer.entity;
+package com.java.copyright.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;

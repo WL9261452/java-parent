@@ -1,4 +1,4 @@
-package com.java.customer.vo;
+package com.java.copyright.vo;
 
 import lombok.Data;
 
