@@ -63,7 +63,7 @@ public class BookController {
 
     @ApiOperation(value = "根据Id查询书籍")
     @GetMapping("getBookById/{bookId}")
-    public APICODE updateBook(@PathVariable String bookId) {
+    public APICODE getBookById(@PathVariable String bookId) {
         Book book = bookService.getById(bookId);
         return APICODE.OK().data("book", book);
     }
