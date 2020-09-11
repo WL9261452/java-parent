@@ -1,10 +1,10 @@
-package com.java.customer.service;
+package com.java.copyright.service;
 
 import com.java.commonutils.jpa.base.service.BaseService;
 import com.java.commonutils.jpa.dynamic.SimpleSpecificationBuilder;
-import com.java.customer.dao.CustomerDao;
-import com.java.customer.entity.Customer;
-import com.java.customer.vo.CustomerQuery;
+import com.java.copyright.dao.CustomerDao;
+import com.java.copyright.entity.Customer;
+import com.java.copyright.vo.CustomerQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,8 +34,11 @@ public class CustomerService extends BaseService<CustomerDao, Customer> {
     public Page<Customer> findPageCustomer(CustomerQuery customerQuery,int pageNo,int pageSize){
         SimpleSpecificationBuilder simpleSpecificationBuilder = new SimpleSpecificationBuilder();
         if (null != customerQuery){
-            if (StringUtils.isEmpty(customerQuery.getCopyrightName())){
+            if (!StringUtils.isEmpty(customerQuery.getCopyrightName())){
                 simpleSpecificationBuilder.and("copyrightName",":",customerQuery.getCopyrightName());
+            }
+            if (!StringUtils.isEmpty(customerQuery.getIname())){
+                simpleSpecificationBuilder.and("iname",":",customerQuery.getIname());
             }
         }
         Specification<Customer> specification = simpleSpecificationBuilder.getSpecification();

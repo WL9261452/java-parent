@@ -1,4 +1,4 @@
-package com.java.customer.vo;
+package com.java.copyright.vo;
 
 import lombok.Data;
 
@@ -15,10 +15,12 @@ public class CustomerQuery {
      * 外键
      */
 //    private Integer copyrightId;
+
     /**
      * 版权名
      */
     private String copyrightName;
+
     /**
      * 姓名
      */
