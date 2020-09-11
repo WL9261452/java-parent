@@ -1,4 +1,4 @@
-package com.java.customer.entity;
+package com.java.copyright.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,7 +39,7 @@ public class Customer {
     private Integer igender;
 
     @Column(name = "idate_birth")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @ApiModelProperty(value = "出生日期")
     private Date idateBirth;
 
