@@ -16,6 +16,7 @@
         <module>service-cms</module>
         <module>service-copyright</module>
         <module>service-oss</module>
+        <module>service-booksingle</module>
     </modules>
 
     <dependencies>
@@ -31,26 +32,31 @@
             <artifactId>common-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!--负载均衡机制
+        <!--负载均衡机制-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>-->
-        <!--hystrix依赖
+        </dependency>
+        <!--hystrix熔断器依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>-->
-        <!--服务注册
+        </dependency>
+        <!--服务注册-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>-->
-        <!--服务调用
+        </dependency>
+        <!--服务调用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>-->
+        </dependency>
+        <!-- 动态配置 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

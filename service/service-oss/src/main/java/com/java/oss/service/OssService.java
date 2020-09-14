@@ -64,4 +64,26 @@ public class OssService {
         return uploadUrl;
     }
 
+
+    public void deleteFile(String imageUrl) {
+        // ## 获取OSS配置文件信息
+        String endPoint = OssJunit.END_POINT;
+        String keyId = OssJunit.KEY_ID;
+        String keySecret = OssJunit.KEY_SECRET;
+        String bucketName = OssJunit.BUCKET_NAME;
+
+        String objectName = imageUrl.replaceAll("https://" + bucketName + "." + endPoint + "/","");;
+
+
+// 创建OSSClient实例。
+        OSS ossClient = new OSSClientBuilder().build(endPoint, keyId, keySecret);
+
+// 删除文件。如需删除文件夹，请将ObjectName设置为对应的文件夹名称。如果文件夹非空，则需要将文件夹下的所有object删除后才能删除该文件夹。
+        ossClient.deleteObject(bucketName, objectName);
+
+// 关闭OSSClient。
+        ossClient.shutdown();
+    }
+
+
 }

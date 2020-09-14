@@ -14,7 +14,6 @@ import java.util.List;
 
 @Api(tags = "版权客户管理")
 @RestController
-@CrossOrigin
 @RequestMapping("/copyright/customer")
 public class CustomerController {
 

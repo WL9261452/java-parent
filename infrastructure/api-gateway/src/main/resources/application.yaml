@@ -1,0 +1,29 @@
+server:
+  port: 8088 #端口
+
+spring:
+  application:
+    name: api-gateway #服务名
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #注册中心地址
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true #使用服务发现路由
+      routes:
+        - id: service-cms #随便填的名字
+          uri: lb://service-cms # 服务名
+          predicates:
+            - Path=/cms/**
+        - id: service-copyrgiht #随便填的名字
+          uri: lb://service-copyright # 服务名
+          predicates:
+            - Path=/copyright/**
+        - id: service-oss #随便填的名字
+          uri: lb://service-oss # 服务名
+          predicates:
+            - Path=/oss/**

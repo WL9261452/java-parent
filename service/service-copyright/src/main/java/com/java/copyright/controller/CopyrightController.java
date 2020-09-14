@@ -15,7 +15,6 @@ import java.util.List;
 @Api(tags = "版权引进")
 @RestController
 @RequestMapping("/copyright")
-@CrossOrigin
 public class CopyrightController {
     @Autowired
     private CopyrightService copyrightService;

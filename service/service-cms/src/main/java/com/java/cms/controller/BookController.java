@@ -1,12 +1,14 @@
 package com.java.cms.controller;
 
 import com.alibaba.excel.EasyExcel;
+import com.java.cms.client.OssClient;
 import com.java.cms.entity.Book;
 import com.java.cms.listener.ExcelListener;
 import com.java.cms.service.BookService;
 import com.java.cms.vo.BookData;
 import com.java.cms.vo.BookQuery;
 import com.java.commonutils.api.APICODE;
+import com.java.servicebase.hanler.HctfException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -17,18 +19,22 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @Api(tags = "书籍管理")
 @RestController
-@CrossOrigin//解决跨域
 @RequestMapping("/cms/book")
 public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private OssClient ossClient;
 
     @ApiOperation(value = "查询所有书籍")
     @GetMapping
@@ -70,8 +76,20 @@ public class BookController {
 
     @ApiOperation(value = "修改书籍")
     @PutMapping("updateBook")
-    public APICODE updateBook(@RequestBody Book book) {
-        bookService.saveOrUpdate(book);
+    public APICODE updateBook(@RequestBody Book book) throws Exception {
+
+        Book book2 = bookService.getById(book.getId());
+        if (!book2.getImageUrl().equals(book.getImageUrl()))
+        {
+            //删除OSS中的书封调用OSS服务中的deleteFile
+            APICODE apicode = null;
+                apicode = ossClient.deleteFile(Base64.getUrlEncoder().encodeToString(book2.getImageUrl().getBytes("utf-8")));
+                if (apicode.getCode() == 20001){
+                    throw  new HctfException(20001,apicode.getMessage());
+                }
+
+        }
+        Book book1 = bookService.saveOrUpdate(book);
         return APICODE.OK();
     }
 
@@ -149,5 +167,6 @@ public class BookController {
 //        bookService.importExcel(file);
 //        return APICODE.OK();
 //    }
+
 
 }

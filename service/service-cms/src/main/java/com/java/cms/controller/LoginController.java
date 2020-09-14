@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "登录页面")
 @RestController
 @RequestMapping("/cms/user")
-@CrossOrigin//解决跨域
 public class LoginController {
 
     @PostMapping("login")

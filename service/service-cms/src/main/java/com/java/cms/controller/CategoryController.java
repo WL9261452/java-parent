@@ -15,7 +15,6 @@ import java.util.List;
 
 @Api(tags = "级联分类")
 @RestController
-@CrossOrigin
 @RequestMapping("/cms/category")
 public class CategoryController {
 
